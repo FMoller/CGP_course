@@ -174,7 +174,8 @@ class individual():
             else:
                 line_output.append(self.nodes[i[0]][i[1]].output)
             
-        print(line_output)
+        #print(line_output)
+        return np.array(line_output)
         
     def map_active(self):
         """ map active nodes"""
