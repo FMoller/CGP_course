@@ -201,7 +201,7 @@ class individual():
 
     def mutate_output(self):
         """ mutate one output"""
-        target = np.random.randint(self.o_add)
+        target = np.random.randint(self.outputs)
         self.o_add[target] = [np.random.randint(lines),
                               self.values[np.random.randint(len(self.values))]]
         
