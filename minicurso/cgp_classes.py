@@ -193,9 +193,10 @@ class individual():
                     to_visit.append(
                         self.nodes[to_visit[0][0]][to_visit[0][1]].i_add[0]
                         )
-                    to_visit.append(
-                        self.nodes[to_visit[0][0]][to_visit[0][1]].i_add[1]
-                        )
+                    if self.nodes[to_visit[0][0]][to_visit[0][1]].gate != 0:
+                        to_visit.append(
+                            self.nodes[to_visit[0][0]][to_visit[0][1]].i_add[1]
+                            )
                     to_visit.remove(to_visit[0])
         self.mapped = True
 
