@@ -222,7 +222,7 @@ class individual():
                 j = np.random.randint(self.cols)
                 active_mut = self.nodes[i][j].active
                 self.nodes[i][j].mutate()
-            print(i,j)
+            #print(i,j)
         self.set_all_inactive()
                 
                 

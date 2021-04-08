@@ -26,6 +26,7 @@ def count_dist(individual, table):
 def design(individual, table, budget, lbd = 4):
     parent = individual
     b_dist = count_dist(parent, table)
+    print("Gen:",budget,"erro:",b_dist)
     while b_dist > 0 and budget > 0:
         pop = [individual.copy() for i in range(lbd)]
         [i.mutate_sam() for i in pop]
@@ -34,6 +35,8 @@ def design(individual, table, budget, lbd = 4):
             b_dist = np.min(dist)
             parent = pop[dist.index(np.min(dist))]
         budget-=1
+        if budget%1000 == 0:
+            print("Gen:",budget,"erro:",b_dist)
     return parent.copy(),b_dist
 
 table_xor = [
@@ -42,8 +45,15 @@ table_xor = [
     [[1,0],[1]],
     [[1,1],[0]]]
 
-A = individual(2,1,1,25,12,3)
-B,erro = design(A, table_xor, 10000)
+table_soma = [
+    [[0,0],[0,0]],
+    [[0,1],[0,1]],
+    [[1,0],[0,1]],
+    [[1,1],[1,0]]]
+
+
+A = individual(2,2,1,100,100,7)
+B,erro = design(A, table_soma, 10000)
         
         
         
