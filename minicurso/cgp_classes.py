@@ -40,9 +40,9 @@ class node():
                        list(range(-inputs,0)))
         
         self.gate = np.random.randint(n_gates)
-        self.i_add = [[np.random.randint(lines),
+        self.i_add = [[np.random.randint(self.lines),
                        self.values[np.random.randint(len(self.values))]],
-                      [np.random.randint(lines),
+                      [np.random.randint(self.lines),
                        self.values[np.random.randint(len(self.values))]],]
         self.active = False
         self.output = -1
@@ -202,7 +202,7 @@ class individual():
     def mutate_output(self):
         """ mutate one output"""
         target = np.random.randint(self.outputs)
-        self.o_add[target] = [np.random.randint(lines),
+        self.o_add[target] = [np.random.randint(self.lines),
                               self.values[np.random.randint(len(self.values))]]
         
     def mutate_sam(self):
