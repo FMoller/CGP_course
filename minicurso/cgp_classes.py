@@ -210,19 +210,21 @@ class individual():
         """ mutate nodes once an active node or output is mutated"""
         if not self.mapped:
             self.map_active()
-        target = np.random.randint(
-            len(self.o_add)+self.lines*self.cols)
+        
 
-        if target < len(self.o_add):
-            self.mutate_output()
-        else:
-            active_mut = False
-            while not active_mut:
+        active_mut = False
+        while not active_mut:
+            target = np.random.randint(
+                len(self.o_add)+self.lines*self.cols)
+
+            if target < len(self.o_add):
+                self.mutate_output()
+            else:
                 i = np.random.randint(self.lines)
                 j = np.random.randint(self.cols)
                 active_mut = self.nodes[i][j].active
                 self.nodes[i][j].mutate()
-            #print(i,j)
+        #print(i,j)
         self.set_all_inactive()
                 
                 
