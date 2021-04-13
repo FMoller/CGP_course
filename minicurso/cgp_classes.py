@@ -226,6 +226,14 @@ class individual():
                 self.nodes[i][j].mutate()
         #print(i,j)
         self.set_all_inactive()
+
+    def mutate_pm(self, qtd):
+        target = np.random.randint(
+                len(self.o_add)+self.lines*self.cols, size = qtd)
+        [self.mutate_output() for i in range(np.sum(target<len(self.o_add)))]
+        [self.nodes[np.random.randint(self.lines)][np.random.randint(self.cols)]
+         for i in range(np.sum(target>=len(self.o_add)))]
+        
                 
                 
 
