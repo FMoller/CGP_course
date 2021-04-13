@@ -29,7 +29,7 @@ def design(individual, table, budget, lbd = 4):
     print("Gen:",budget,"erro:",b_dist)
     while b_dist > 0 and budget > 0:
         pop = [individual.copy() for i in range(lbd)]
-        [i.mutate_sam() for i in pop]
+        [i.mutate_pm(10) for i in pop]
         dist = [count_dist(i,table) for i in pop]
         if np.min(dist) <= b_dist:
             b_dist = np.min(dist)
