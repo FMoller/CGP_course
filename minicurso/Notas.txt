@@ -1,0 +1,32 @@
+Aparentemente eu cometi um erro ao dizer que meu programa estava errado! 
+O circuito formado por uma porta XOR que recebe sua entrada de uma NOR e 
+uma NAND é de fato uma XOR:
+
+Porta NOR:
+I0	|I1	|NOR(I0,I1)
+ 0	| 0	| 1
+ 0	| 1	| 0
+ 1	| 0	| 0
+ 1	| 1	| 0
+
+Porta NAND:
+I0	|I1	|NAND(I0,I1)
+ 0	| 0	| 1
+ 0	| 1	| 1
+ 1	| 0	| 1
+ 1	| 1	| 0
+
+Porta XOR(NOR,NAND):
+I0	|I1	|NAND(I0,I1)	|NOR(I0,I1)	|XOR(NOR,NAND)
+ 0	| 0	| 1		| 1		| XOR(1,1) = 0
+ 0	| 1	| 1		| 0		| XOR(1,0) = 1
+ 1	| 0	| 1		| 0		| XOR(1,0) = 1
+ 1	| 1	| 0		| 0		| XOR(0,0) = 0
+
+Portanto o resultado final do circuito é equivalente a uma porta XOR conecatada 
+à I0 e I1. Sim, redundante, porém vale lembrar que só executamos a fase de design
+e uma das características da CGP em tal fase é gerar circuitos redundantes. A
+fase de otimização é que é a responsável por eliminar as redundâncias e entregar
+o circuito minimizado.
+
+
